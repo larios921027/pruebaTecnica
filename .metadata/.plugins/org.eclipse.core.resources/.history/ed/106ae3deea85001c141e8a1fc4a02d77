@@ -1,0 +1,30 @@
+package com.example.demo.rest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.dao.empleadoDao;
+import com.example.demo.entitys.empleado;
+
+@RestController
+@RequestMapping("empleado")
+public class empleadoRest {
+	
+	@Autowired
+	private empleadoDao empleadoDao;
+
+	
+	 @GetMapping
+	 public ResponseEntity<empleado> getEmpleado() {
+		 empleado emp = new empleado();
+		 emp.setId(1);
+		 emp.setNombre("jonathan");
+		 emp.setDni("777");
+		 emp.setCargo("consultor");
+		 return ResponseEntity.ok(emp);
+
+	 }
+}
